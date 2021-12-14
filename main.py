@@ -1,9 +1,7 @@
 import random
-import os
 
-
-
-HANGMAN = (
+# виселица
+GALLOWS = (
     """
     """,
     """
@@ -71,7 +69,7 @@ HANGMAN = (
 )
 
 # максимальноe число попыток
-max_attempt = len(HANGMAN) - 1
+max_attempt = len(GALLOWS) - 1
 
 # загадоное слово: загадка
 words = {"НИТКА": "Не оближешь – не встанет, не встанет – не влезет!",
@@ -89,17 +87,17 @@ length = "-" * len(key)
 attempt = 0
 # использованные буквы
 used = []
-print("Добро пожаловать в игру Виселица ^^")
+print("Добро пожаловать в игру The Gallows :)")
 print("Вам предстоит отгадать слово, которое я загадал")
-print("\nВот тебе небольшая подсказка:\n", words[key])
+print("\nВнимательно прочти загадку:\n", words[key])
 
 # основная логика приложения
 while attempt < max_attempt and length != key:
     if attempt > 0:
-        print("\nПодсказка:\n ", words[key])
+        print("\nЗагадка:\n ", words[key])
 
-    print("Виселится: ")
-    print(HANGMAN[attempt])
+    print("THE GALLOWS:")
+    print(GALOWS[attempt])
 
 
     print("Вы уже предлагали следующие буквы: ", used)
@@ -143,15 +141,14 @@ while attempt < max_attempt and length != key:
         print("К сожалению буквы ", letter, " нет в слове.")
         # увеличиваем число попыток
         attempt += 1
-    # os.system('cls')
 
 # если число попыток достигло максимального
 if attempt == max_attempt:
-    print("Вас повесили >_<")
-    print(HANGMAN[attempt])
+    print("**********GAME OVER**********")
+    print(GALLOWS[attempt])
 # если число попыток меньше максимального
 else:
-    print("Вы выиграли!")
+    print("**********YOU WIN**********")
 
 print("Предлагаемые буквы: ", used)
 print("Отгаданное вами слово сейчас выглядит так: ", length, "\n")
